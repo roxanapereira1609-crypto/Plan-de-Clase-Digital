@@ -1,0 +1,51 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 25px;
+    background-color: #c689b6;
+}
+.navbar a {
+color: white;
+text-decoration: none;
+margin-left: 15px;
+}
+
+.navbar h1 {
+color:beige;
+}
+
+.contenedor-tarjetas {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+}
+
+.tarjeta-modulo {
+    flex: 1;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(22, 11, 237, 0.711);
+    background-color: white;
+}
+.navbar a:hover {
+    background-color: rgb(170, 159, 237);
+    color: #0749f0;
+    padding: 8px;
+    border-radius: 5px;
+}
+@media (max-width: 600px) {
+    .contenedor-tarjetas {
+        flex-direction: column;
+    }
+
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .navbar a {
+        display: block;
+        margin: 8px 0;
+    }
+}
