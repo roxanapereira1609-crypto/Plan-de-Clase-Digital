@@ -15,18 +15,18 @@ margin-left: 15px;
 color:beige;
 }
 
-.contenedor-tarjetas {
-    display: flex;
-    gap: 20px;
-    padding: 20px;
-}
-
 .tarjeta-modulo {
     flex: 1;
     padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 2px 8px rgba(22, 11, 237, 0.711);
+    border: 2px solid #d8c8f0;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(80, 50, 150, 0.25);
     background-color: white;
+    transition: transform 0.3s ease;
+}
+
+.tarjeta-modulo:hover {
+    transform: translateY(-5px);
 }
 .navbar a:hover {
     background-color: rgb(170, 159, 237);
