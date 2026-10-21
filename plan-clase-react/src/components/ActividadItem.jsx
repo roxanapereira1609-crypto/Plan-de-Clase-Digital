@@ -1,9 +1,18 @@
 
 import React, { useState } from 'react';
 
-function ActividadItem({ titulo, tiempo, tipo }) {
+function ActividadItem({ titulo, tiempo, tipo, onCambioEstado }) {
   const [completada, setCompletada] = useState(false);
+  const [mostrarBienvenida, setMostrarBienvenida] = useState(false);
 
+const cambiarEstado = () => {
+  const nuevoEstado = !completada;
+  setCompletada(nuevoEstado);
+
+  if (onCambioEstado) {
+    onCambioEstado(nuevoEstado);
+  }
+};
   return (
     <div style={{
       border: '1px solid #cbd5e1',
@@ -38,7 +47,7 @@ function ActividadItem({ titulo, tiempo, tipo }) {
       </p>
 
       <button
-        onClick={() => setCompletada(!completada)}
+        onClick={cambiarEstado}
         style={{
           marginTop: '12px',
           padding: '8px 12px',
@@ -51,6 +60,40 @@ function ActividadItem({ titulo, tiempo, tipo }) {
       >
         {completada ? '✓ Completada' : 'Marcar como completada'}
       </button>
+      <button
+  onClick={() => setMostrarBienvenida(!mostrarBienvenida)}
+  style={{
+    marginTop: '12px',
+    marginLeft: '10px',
+    padding: '8px 12px',
+    backgroundColor: '#2563eb',
+    color: 'white',
+    border: 'none',
+    borderRadius: '5px',
+    cursor: 'pointer'
+  }}
+>
+  {mostrarBienvenida ? 'Cerrar actividad' : 'Entrar a la actividad'}
+</button>
+{mostrarBienvenida && (
+  <div style={{
+    marginTop: '15px',
+    padding: '20px',
+    backgroundColor: '#ede9fe',
+    borderRadius: '10px',
+    textAlign: 'center',
+    border: '1px solid #c4b5fd'
+  }}>
+    <h3 style={{ color: '#6a35c2' }}>
+      ¡Bienvenido a {titulo}!
+    </h3>
+
+    <p style={{ color: '#475569' }}>
+      Este espacio está preparado para que próximamente
+      descubras nuevas experiencias de aprendizaje.
+    </p>
+  </div>
+)}
     </div>
   );
 }
