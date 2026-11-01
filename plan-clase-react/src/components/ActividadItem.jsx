@@ -1,10 +1,9 @@
 
 import React, { useState } from 'react';
-
+import { motion } from "framer-motion";
 function ActividadItem({ titulo, tiempo, tipo, onCambioEstado }) {
   const [completada, setCompletada] = useState(false);
   const [mostrarBienvenida, setMostrarBienvenida] = useState(false);
-
 const cambiarEstado = () => {
   const nuevoEstado = !completada;
   setCompletada(nuevoEstado);
@@ -14,7 +13,13 @@ const cambiarEstado = () => {
   }
 };
   return (
-    <div style={{
+   <motion.div
+  initial={{ opacity: 0, y: 15 }}
+  animate={{ opacity: 1, y: 0 }}
+  whileHover={{ y: -4, scale: 1.01 }}
+  whileTap={{ scale: 0.99 }}
+  transition={{ duration: 0.25 }}
+  style={{
       border: '1px solid #cbd5e1',
       padding: '15px',
       borderRadius: '8px',
@@ -45,7 +50,6 @@ const cambiarEstado = () => {
       }}>
         ⏱️ Duración: {tiempo}
       </p>
-
       <button
         onClick={cambiarEstado}
         style={{
@@ -94,7 +98,7 @@ const cambiarEstado = () => {
     </p>
   </div>
 )}
-    </div>
+  </motion.div>
   );
 }
 

@@ -1,7 +1,11 @@
-
+import { motion } from "framer-motion";
 function ObjetivosCard({ competencia, indicadorLogro }) {
   return (
-    <section style={{
+    <motion.section
+  initial={{ opacity: 0, y: 20 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.6, delay: 0.2 }}
+  style={{
       backgroundColor: '#f0f9ff',
       border: '2px solid #7c3aed',
       borderRadius: '10px',
@@ -21,7 +25,7 @@ function ObjetivosCard({ competencia, indicadorLogro }) {
         Indicador de logro
       </h3>
       <p>{indicadorLogro}</p>
-    </section>
+    </motion.section>
   );
 }
 

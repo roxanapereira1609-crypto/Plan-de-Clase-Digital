@@ -1,7 +1,11 @@
-
+import { motion } from "framer-motion";
 function HeaderClase({ tituloTema, nombreDocente, horario }) {
   return (
-    <header style={{
+    <motion.header
+  initial={{ opacity: 0, y: -20 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.6 }}
+  style={{
       backgroundColor: '#7c3aed',
       color: 'white',
       padding: '25px',
@@ -20,7 +24,7 @@ function HeaderClase({ tituloTema, nombreDocente, horario }) {
 
       <h3>Docente: {nombreDocente}</h3>
       <p>Horario: {horario}</p>
-    </header>
+    </motion.header>
   );
 }
 
